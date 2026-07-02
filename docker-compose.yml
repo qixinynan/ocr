@@ -1,0 +1,12 @@
+services:
+  ocr:
+    build:
+      context: .
+    image: local-gpu-ocr:latest
+    container_name: local-gpu-ocr
+    restart: unless-stopped
+    ports:
+      - "8008:8008"
+    volumes:
+      - ./models:/models
+    gpus: all
